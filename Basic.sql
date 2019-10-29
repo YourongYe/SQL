@@ -18,3 +18,10 @@ WHERE ENDDATE<=CURRENT_TIMESTAMP
 UPDATE Auction
     SET isFinished = 1
    WHERE Auction.endDate >= CURRENT_TIMESTAMP;
+   
+   
+-- 要手动insert数据
+INSERT INTO Auction(auctionid,startDate,endDate)
+VALUES(00006,'19-10-29','19-11-20');
+INSERT INTO Auction(auctionid,startDate,endDate)
+VALUES(00007,'19-10-29','19-12-20');
