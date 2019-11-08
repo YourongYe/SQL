@@ -16,8 +16,8 @@ WHERE ENDDATE<=CURRENT_TIMESTAMP
 
 -- 如果要修改某个表里的某些值，可以用
 UPDATE Auction
-    SET isFinished = 1
-   WHERE Auction.endDate >= CURRENT_TIMESTAMP;
+SET isFinished = 1
+WHERE Auction.endDate <= CURRENT_TIMESTAMP;
    
    
 -- 要手动insert数据
