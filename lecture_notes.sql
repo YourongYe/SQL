@@ -1,4 +1,5 @@
 --------------------****** SELECT ******--------------------
+
 -- Select everything in the table.
 SELECT * FROM table_name;
 
@@ -28,7 +29,24 @@ WHERE City = "Berilin"
 AND PostalCode = 12209
 
 -- Select all records where the City column has the value 'Berlin' or 'London'.
-SELECT * FROM Customers
+SELECT * FROM  Customers
 WHERE City = 'Berlin'
 OR CITY = "London"; 
+
+--------------------****** ORDER BY ******--------------------
+
+-- Select all records from the Customers table, sort the result alphabetically by the column City.
+SELECT * FROM Customers
+ORDER BY City;
+
+-- 倒序
+SELECT * FROM Customers
+ORDER BY City DESC;
+
+-- 多层排序
+SELECT * FROM Customers
+ORDER BY Country, City；
+
+
+
 
