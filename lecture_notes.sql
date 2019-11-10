@@ -115,9 +115,10 @@ FROM Products;
 SELECT * FROM Customers
 WHERE City LIKE 'a%'; -- 以a开头
 WHERE City LIKE '%a'; -- 以a结尾
+WHERE City LIKE 'a%b'; -- 以a开头，以b结尾
 WHERE City LIKE '%a%'; -- 包含a
-
-
+WHERE City NOT LIKE '%a'; -- 不以a结尾
+WHERE City NOT LIKE '_a%'; -- 第二个字母为a
 
 
 
