@@ -48,5 +48,29 @@ SELECT * FROM Customers
 ORDER BY Country, City；
 
 
+--------------------****** INSERT ******--------------------
+
+INSERT INTO Customers 
+(CustomerName, Address, City, PostalCode,Country)
+VALUES ('Hekkan Burger','Gateveien 15','Sandnes','4306','Norway');
+
+--------------------****** NULL ******--------------------
+
+SELECT * FROM Customers
+WHERE PostalCode IS NULL;
+
+SELECT * FROM Customers
+WHERE PostalCode IS NOT NULL;
+
+
+--------------------****** UPDATE ******--------------------
+
+-- Update the City column of all records in the Customers table.
+UPDATE Customers
+SET City = 'Oslo';
+
+UPDATE Customers
+SET City = 'Oslo'
+WHERE Country = 'Norway';
 
 
