@@ -118,7 +118,55 @@ WHERE City LIKE '%a'; -- 以a结尾
 WHERE City LIKE 'a%b'; -- 以a开头，以b结尾
 WHERE City LIKE '%a%'; -- 包含a
 WHERE City NOT LIKE '%a'; -- 不以a结尾
-WHERE City NOT LIKE '_a%'; -- 第二个字母为a
+WHERE City LIKE '_a%'; -- 第二个字母为a
+WHERE City LIKE '[acs]%'; -- 以a或c或s开头
+WHERE City LIKE '[a-f]%'; -- 以a到f之间的字母开头
+WHERE City LIKE ‘[^acf]%’ -- 以a，f，c开头
+
+
+--------------------****** IN ******--------------------
+
+-- 如果条件比较多，是一个list
+SELECT * FROM Customers
+WHERE Country IN('Norway','France');
 
 
 
+--------------------****** BETWEEN ******--------------------
+
+-- select all the records where the value of the Price column is between 10 and 20.
+SELECT * FROM Products
+WHERE Price BETWEEN 10 AND 20;
+WHERE ProductName BETWEEN 'Geitost' AND 'Pavlova'; -- 还可以between字母
+
+--------------------****** AS ******--------------------
+-- 换名字display
+SELECT CustomerName, Address, PostalCode AS Pno
+FROM Customers;
+
+
+--------------------****** JOIN ******--------------------
+-- 两个table合并，以左边的table为准
+SELECT *
+FROM Orders
+LEFT JOIN Customers 
+ON Orders.CustomerID=Customers.CustomerID;
+
+-- 只选交集
+INNER JOIN Customers
+-- 两个table合并，以右边的table为准
+RIGHT JOIN Customers
+
+
+
+--------------------****** GROUP ******--------------------
+-- List the number of customers in each country.
+SELECT COUNT(CustomerID),Country
+FROM Customers
+GROUP BY Country;
+
+-- List the number of customers in each country, ordered by the country with the most customers first.
+SELECT COUNT(CustomerID),Country
+FROM Customers
+GROUP BY Country
+ORDER BY COUNT(CustomerID) DESC;
