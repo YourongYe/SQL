@@ -170,3 +170,32 @@ SELECT COUNT(CustomerID),Country
 FROM Customers
 GROUP BY Country
 ORDER BY COUNT(CustomerID) DESC;
+
+
+-- CREATE a database named testDB.
+CREATE DATABASE testDB;
+-- delete a database named testDB.
+DROP DATABASE testDB;
+
+-- create a new table called Persons.
+CREATE TABLE Persons
+ (
+  PersonID int,
+  LastName varchar(255),
+  FirstName varchar(255),
+  Address varchar(255),
+  City varchar(255) 
+);
+-- create a table called Persons.
+DROP TABLE Persons
+
+-- delete all data inside a table.
+TRUNCATE TABLE Persons;
+
+-- Add a column of type DATE called Birthday.
+ALTER TABLEPersons
+ADD Birthday DATE;
+
+-- Delete the column Birthday from the Persons table.
+ALTER TABLEPersons
+DROP COLUMN Birthday;
