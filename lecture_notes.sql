@@ -109,3 +109,15 @@ SELECT SUM(Price)
 FROM Products;
 
 
+--------------------****** LIKE ******--------------------
+
+-- Select all records where the value of the City column starts with the letter "a".
+SELECT * FROM Customers
+WHERE City LIKE 'a%'; -- 以a开头
+WHERE City LIKE '%a'; -- 以a结尾
+WHERE City LIKE '%a%'; -- 包含a
+
+
+
+
+
