@@ -77,3 +77,35 @@ WHERE Country = 'Norway';
 UPDATE Customers
 SET City = 'Oslo', Country = 'Norway'
 WHERE CustomerID = 32;
+
+
+--------------------****** DELETE ******--------------------
+
+-- Delete all the records from the Customers table where the Country value is 'Norway'.
+DELETE FROM Customers
+WHERE Country = 'Norway';
+
+-- Delete all the records from the Customers table.
+DELETE FROM Customers;
+
+
+--------------------****** FUNCTIONS ******--------------------
+
+-- Use the MIN function to select the record with the smallest value of the Price column.
+SELECT MIN(Price) -- 最大值换成MAX()
+FROM Products;
+
+-- 返回满足条件的行数
+SELECT COUNT(*)
+FROM Products
+WHERE Price = 18;
+
+-- 返回所有product的平均值
+SELECT AVG(Price) 
+FROM Products;
+
+-- 返回所有product的总和
+SELECT SUM(Price)
+FROM Products;
+
+
