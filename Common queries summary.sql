@@ -12,3 +12,9 @@ select count(city) - count(distinct city) from station
 select distinct city
 from station
 where city like '%[aeiou]' and city like '[aeiou]%';
+
+/* substring的用法 substring（string，start，length）*/
+select name
+from students
+where marks > 75
+order by substring(name, len(name)-2, 3), id asc
