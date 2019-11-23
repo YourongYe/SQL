@@ -24,3 +24,9 @@ select name
 from employee
 where salary > 2000 and months<10
 order by employee_id asc
+
+/* 有两个tables，一个students，一个grades，students里有marks，对应grades里的区间min_mark和max_mark*/
+select (case when g.grade>=8 then s.name else null end), grade, marks -- case when 的用法相当于if，语法是（case when (condition) then (true results) else (false results) end）
+from students s, grades g
+where marks between min_mark and max_mark -- 类似于where s.id = d.id, 但这里不是直接对应关系，而是需要对应到相应的区间
+order by g.grade desc, name asc
