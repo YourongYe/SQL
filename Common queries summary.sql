@@ -4,3 +4,6 @@ from station
 order by length(city) asc, city asc
 limit 1;
 
+
+/* 算出表格中总的城市数量和distinct城市数量之差*/
+select count(city) - count(distinct city) from station
