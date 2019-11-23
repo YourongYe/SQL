@@ -7,3 +7,8 @@ limit 1;
 
 /* 算出表格中总的城市数量和distinct城市数量之差*/
 select count(city) - count(distinct city) from station
+
+/* 以元音字母开头并结尾的*/
+select distinct city
+from station
+where city like '%[aeiou]' and city like '[aeiou]%';
