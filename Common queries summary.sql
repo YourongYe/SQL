@@ -18,3 +18,9 @@ select name
 from students
 where marks > 75
 order by substring(name, len(name)-2, 3), id asc
+
+/* where clause如果有两个以上的condition，必须用and 或者 or 连接*/
+select name
+from employee
+where salary > 2000 and months<10
+order by employee_id asc
