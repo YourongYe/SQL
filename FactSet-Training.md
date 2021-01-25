@@ -83,7 +83,7 @@ CROSS JOIN  Genres
 ```sql
 -- Alternative “implicit” syntax
 SELECT      *
-FROM        Movies, Genres
+FROM        Movies, Genres  -- if we don't specify where clause, then its a cross join in default.
 ```
 
 ## Inner join
