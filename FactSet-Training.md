@@ -40,3 +40,23 @@ GROUP BY    lastName
 HAVING      COUNT(*) > 7
 ORDER BY    actorCount DESC, lastName
 ```
+
+# Fixed Syntax Order
+```sql
+-- BadSELECT    actorId, COUNT(movieId) AS movieCount
+FROM      Roles
+GROUP BY  actorId
+HAVING    movieCount > 3
+
+-- OK
+SELECT    actorId, COUNT(movieId) AS movieCount
+FROM      Roles
+GROUP BY  actorId
+HAVING    COUNT(movieId) > 3
+
+-- OK
+SELECT    actorId, COUNT(movieId) AS movieCount
+FROM      Roles
+GROUP BY  actorId
+ORDER BY  movieCount DESC
+```
