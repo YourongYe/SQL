@@ -59,5 +59,5 @@ HAVING    COUNT(movieId) > 3
 SELECT    actorId, COUNT(movieId) AS movieCount
 FROM      Roles
 GROUP BY  actorId
-ORDER BY  movieCount DESC
+ORDER BY  movieCount DESC -- order by往往是最后一步，所以可以用自定义的变量名
 ```
