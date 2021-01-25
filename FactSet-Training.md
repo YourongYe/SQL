@@ -141,3 +141,48 @@ INNER JOIN  dbo.Actors AS a
 ON          a.actorId = r.actorId
 WHERE       a.lastName = 'Sellers' AND a.firstName = 'Peter‘
 ```
+# Union & Intersect
+
+## Union
+Listed all movies acted by either Edward (I) Norton or Brad Pitt?
+```sql
+select title
+from Roles as r
+inner join Actors as a
+on r.actorId = a.actorId
+inner join Movies as m
+on r.movieId = m.movieId
+where a.firstName = 'Edward (I)' and a.lastName = 'Norton'
+
+union -- merge two results without duplications, Union All allows for duplications
+
+select title
+from Roles as r
+inner join Actors as a
+on r.actorId = a.actorId
+inner join Movies as m
+on r.movieId = m.movieId
+where a.firstName = 'Brad' and a.lastName = 'Pitt'
+```
+
+## Intersect
+What movies are in common between Edward (I) Norton and Brad Pitt?
+```sql
+select title
+from Roles as r
+inner join Actors as a
+on r.actorId = a.actorId
+inner join Movies as m
+on r.movieId = m.movieId
+where a.firstName = 'Edward (I)' and a.lastName = 'Norton'
+
+intersect
+
+select title
+from Roles as r
+inner join Actors as a
+on r.actorId = a.actorId
+inner join Movies as m
+on r.movieId = m.movieId
+where a.firstName = 'Brad' and a.lastName = 'Pitt'
+```
