@@ -43,10 +43,11 @@ ORDER BY    actorCount DESC, lastName
 
 # Fixed Syntax Order
 ```sql
--- BadSELECT    actorId, COUNT(movieId) AS movieCount
+-- Bad
+SELECT    actorId, COUNT(movieId) AS movieCount
 FROM      Roles
 GROUP BY  actorId
-HAVING    movieCount > 3
+HAVING    movieCount > 3 -- 这里不能用自己定义的变量，因为这个变量实际上是在having clause之后被define的
 
 -- OK
 SELECT    actorId, COUNT(movieId) AS movieCount
