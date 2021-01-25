@@ -123,4 +123,21 @@ FULL OUTER JOIN  Genres AS g
 ON               m.genreId = g.genreId   -- retain all columns in both tables. match as more as possible, others as null
 ```
 
-
+# Top & Distinct
+## Top
+```sql
+SELECT      TOP 3 title
+FROM        Movies
+ORDER BY    rating DESC
+```
+## Distinct
+```sql
+-- What movies has Peter Sellers been in?
+SELECT      DISTINCT m.title AS movieTitle
+FROM        dbo.Roles AS r
+INNER JOIN  dbo.Movies AS m
+ON          r.movieId = m.movieId
+INNER JOIN  dbo.Actors AS a
+ON          a.actorId = r.actorId
+WHERE       a.lastName = 'Sellers' AND a.firstName = 'Peter‘
+```
