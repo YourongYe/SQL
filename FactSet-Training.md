@@ -1,5 +1,7 @@
 
 # Basics
+
+## Select
 ```sql
 SELECT 1 AS aNumber, ‘foo’ AS aString
 
@@ -10,21 +12,21 @@ SELECT   firstName, lastName
 FROM     Actors
 ```
 
-# Where Clause
+## Where Clause
 ```sql
 SELECT   firstName, lastName, gender
 FROM     Actors
 WHERE    gender = ‘M’ AND lastName LIKE ‘Smith%’
 ```
 
-# Group By
+## Group By
 ```sql
 SELECT      lastName, COUNT(*) AS actorCount
 FROM        Actors
 GROUP BY    lastName
 ```
 
-# Having Clause
+## Having Clause
 ```sql
 SELECT      lastName, COUNT(*) AS actorCount
 FROM        Actors
@@ -32,7 +34,7 @@ GROUP BY    lastName
 HAVING      COUNT(*) > 7
 ```
 
-# Order By
+## Order By
 ```sql 
 SELECT      lastName, COUNT(*) AS actorCount
 FROM        Actors
@@ -41,7 +43,7 @@ HAVING      COUNT(*) > 7
 ORDER BY    actorCount DESC, lastName
 ```
 
-# Fixed Syntax Order
+## Fixed Syntax Order
 ```sql
 -- Bad
 SELECT    actorId, COUNT(movieId) AS movieCount
@@ -62,10 +64,41 @@ GROUP BY  actorId
 ORDER BY  movieCount DESC -- order by往往是最后一步，所以可以用自定义的变量名
 ```
 
-# Actual Implementing Order
+### Actual Implementing Order
 FROM clause  
 WHERE clause  
 GROUP BY clause  
 HAVING clause  
 SELECT clause  
 ORDER BY clause  
+
+# Join
+## Cross Join
+```sql
+SELECT      *
+FROM        Movies
+CROSS JOIN  Genres
+```
+### An implicit way
+```sql
+-- Alternative “implicit” syntax
+SELECT      *
+FROM        Movies, Genres
+```
+
+## Inner join
+```sql
+SELECT      *
+FROM        Movies AS m
+INNER JOIN  Genres AS g
+ON          m.genreId = g.genreId
+```
+### An Implicit Way
+```sql
+-- Alternative “implicit” syntax
+SELECT      *
+FROM        Movies AS m, Genres AS g
+WHERE       m.genreId = g.genreId
+```
+## Left Join & Right Join & Full Outer Join
+
