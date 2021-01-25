@@ -132,7 +132,7 @@ ORDER BY    rating DESC
 ```
 ## Distinct
 ```sql
--- What movies has Peter Sellers been in?
+-- What movies has Peter Sellers been in? (an actor may paly multiple roles in a movie)
 SELECT      DISTINCT m.title AS movieTitle
 FROM        dbo.Roles AS r
 INNER JOIN  dbo.Movies AS m
