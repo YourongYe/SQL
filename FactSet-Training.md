@@ -65,12 +65,14 @@ ORDER BY  movieCount DESC -- order by往往是最后一步，所以可以用自�
 ```
 
 ### Actual Implementing Order
+```sql
 FROM clause  
 WHERE clause  
 GROUP BY clause  
 HAVING clause  
 SELECT clause  
 ORDER BY clause  
+```
 
 # Join
 ## Cross Join
